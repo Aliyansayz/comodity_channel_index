@@ -34,7 +34,10 @@ def cci( period ):
     typical_ma[:period-1] = (typical_price[:period-1] * 1/period) + typical_price[:period-1]
     dev = deviation( typical_price , typical_ma ) 
     mean_deviation = sma( dev  , period) 
-    cci = ( dev ) / 0.015 * mean_deviation 
+    mean_deviation[:period-1] =  (dev[:period-1] * 1/period) + dev[:period-1]
+
+    cci = ( typical_price - typical_ma ) / ( 0.015 * mean_deviation ) 
     
     return  cci
+
 
