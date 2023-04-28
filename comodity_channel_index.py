@@ -23,8 +23,9 @@ def sma (array, period ):
   return sma 
 
 def deviation(typical_price , typical_ma ):
-    z  = abs(typical_price - typical_ma)
-    return z
+     
+    return abs(typical_price - typical_ma)
+    
 
 def cci( period ):
 
